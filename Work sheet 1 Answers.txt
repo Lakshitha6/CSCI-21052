@@ -1,0 +1,147 @@
+Question 1 ;
+
+import java.util.Scanner; 
+
+class Main {
+    public static void main(String[] args) {
+    Scanner word = new Scanner(System.in); 
+    System.out.println("Enter a word");
+
+    String input = word.nextLine();  
+    int wordlength = input.length();
+    int middleindex = (wordlength/2);
+    
+    if(!(wordlength%2 == 1))
+        System.out.println(input + " is not a odd-length word!1"); 
+        
+    else {
+        char[] array = input.toCharArray();
+        System.out.println(array[middleindex] + " is the middle letter");
+    }
+    
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Question 2 ;
+
+import java.util.Scanner; 
+
+class Main {
+    public static void main(String[] args) {
+    Scanner fullname = new Scanner(System.in); 
+    System.out.println("Enter Your First, Middle and Last Name respectively");;
+
+    String input = fullname.nextLine();  
+    String[] words = input.trim().split("\\s+");
+    
+    int wordcount = words.length ;
+    
+    if(wordcount > 3)
+        System.out.println("Please Enter First, Middle and Last Name Only !!");
+   
+    else{
+        
+        String first = words[0];
+        String middle = words[1];
+        String last = words[2];
+        
+        char[] array = middle.toCharArray();
+        
+       System.out.println(last+", " + first +" " + array[0]); 
+
+    } 
+    }
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Question 3 ;
+
+import java.util.Scanner; 
+
+class Main {
+    public static void main(String[] args) {
+    Scanner length = new Scanner(System.in); 
+    System.out.println("Enter length in centimetres");
+
+    double centimeters = length.nextDouble();
+    double inches = centimeters/2.54 ;
+    int feet = (int) inches/12 ;
+    inches = inches%12.00 ;
+    
+    System.out.println(feet + " Feets and " + String.format("%.2f", inches) + " inches");
+    
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Question 4 ;
+
+import javax.swing.JFrame;
+
+public class Main {
+
+ public static void main(String[] args) {
+
+
+  JFrame frame = new JFrame();
+  frame.setTitle("My First Frame"); 
+  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+  frame.setResizable(false); 
+  frame.setSize(300,200); 
+  frame.setVisible(true); 
+   frame.setLocation( 50, 50 );
+
+ }
+}
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Question 5 ;
+
+
+import java.util.Scanner;
+
+public class Circle {
+
+    double largeCircleRadius, smallCircleRadius ;
+    final double pi = 3.1415926535 ;
+    double area;
+
+    static Circle myCircle = new Circle();
+
+    public void setRadius(){
+        Scanner largeRadius = new Scanner(System.in);
+        System.out.print("Enter Large Circle Radius: ");
+        myCircle.largeCircleRadius = largeRadius.nextDouble();
+
+        Scanner smallRadius = new Scanner(System.in);
+        System.out.print("Enter Small Circle Radius: ");
+        myCircle.smallCircleRadius = smallRadius.nextDouble();
+    }
+
+    public  double computeArea(){
+
+    area = pi*Math.pow(myCircle.largeCircleRadius,2) - pi*Math.pow(myCircle.smallCircleRadius,2) ;
+    return area;
+    }
+
+    public static void main(String[] args) {
+
+        myCircle.setRadius();
+        double returnedArea = myCircle.computeArea();
+        System.out.println(returnedArea);
+
+    }
+}
