@@ -117,7 +117,7 @@ public class Circle {
 
     double largeCircleRadius, smallCircleRadius ;
     final double pi = 3.1415926535 ;
-    double area;
+    double area, circumference;
 
     static Circle myCircle = new Circle();
 
@@ -137,11 +137,18 @@ public class Circle {
     return area;
     }
 
+    public  double computeCircumference(){
+
+        circumference = 2*pi*(myCircle.largeCircleRadius - myCircle.smallCircleRadius);
+        return circumference;
+    }
+
     public static void main(String[] args) {
 
         myCircle.setRadius();
-        double returnedArea = myCircle.computeArea();
-        System.out.println(returnedArea);
+
+        System.out.println("Area of the shaded circle: "+ myCircle.computeArea());
+        System.out.println("Circumference: " + myCircle.computeCircumference());
 
     }
 }
